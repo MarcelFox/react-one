@@ -1,0 +1,12 @@
+version: "3"
+
+services: 
+  react-one:
+    image: node:lts-alpine3.13
+    labels: 
+      project: "react-one"
+    ports: 
+      - "8080:8080"
+    volumes:
+      - "./:/app"
+    working_dir: "/app"
