@@ -1,4 +1,29 @@
 {
+    "rules": {
+        "comma-dangle": 0,
+        "max-len": [
+            "error",
+            {
+                "code": 120,
+                "comments": 80
+            }
+        ],
+        "consistent-return": 2,
+        "indent": [
+            1,
+            2
+        ],
+        "no-else-return": 1,
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            1,
+            "always"
+        ],
+        "space-unary-ops": 2
+    },
     "env": {
         "browser": true,
         "es2021": true
@@ -15,13 +40,22 @@
         "sourceType": "module"
     },
     "settings": {
-        "import/resolver": "webpack"
+        "import/resolver": "webpack",
+        "json/sort-package-json": "standard",
+        "json/ignore-files": [
+            "**/package-lock.json"
+        ],
+        "json/json-with-comments-files": [
+            "**/tsconfig.json",
+            ".vscode/**"
+        ]
     },
     "plugins": [
         "react"
     ],
-    "ignorePatterns": ["src/core/public/**", "node_modules/**", "webpack.config.js"],
-    "rules": {
-        "comma-dangle": 0
-    }
+    "ignorePatterns": [
+        "src/core/public/**",
+        "node_modules/**",
+        "webpack.config.js"
+    ]
 }

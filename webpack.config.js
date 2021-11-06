@@ -1,6 +1,6 @@
 const path = require('path');
 const dotenv = require('dotenv');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -14,7 +14,7 @@ module.exports = {
   mode: NODE_ENV,
   entry: './src/main.jsx',
   output: {
-    filename: 'bundle.[hash].js',
+    filename: 'bundle.[fullhash].js',
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -74,7 +74,8 @@ module.exports = {
     ],
   },
   optimization: {
-    minimizer: [new UglifyJsPlugin()],
+    minimize: true,
+    minimizer: [new TerserPlugin()],
   },
   plugins: [
     new HtmlWebpackPlugin({
