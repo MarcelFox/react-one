@@ -8,10 +8,10 @@ import About from '@Domain/landingPage/pages/about';
 const rootElement = document.getElementById('root');
 
 function NotFound() {
-  <h1>404 - Page Not Found</h1>;
+  return <h1>404 - Page Not Found</h1>;
 }
 function Info() {
-  <h1>Info</h1>;
+  return <h1>Info</h1>;
 }
 
 render(
