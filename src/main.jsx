@@ -7,12 +7,12 @@ import About from '@Domain/landingPage/pages/about';
 
 const rootElement = document.getElementById('root');
 
-const NotFound = function () {
+function NotFound() {
   <h1>404 - Page Not Found</h1>;
-};
-const Info = function () {
+}
+function Info() {
   <h1>Info</h1>;
-};
+}
 
 render(
   <BrowserRouter>
