@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default () => (
+export default function () {
   <nav
     style={{
       borderBottom: 'solid 1px',
@@ -21,5 +21,5 @@ export default () => (
         <Link to="/about">About</Link>
       </li>
     </ul>
-  </nav>
-);
+  </nav>;
+}
