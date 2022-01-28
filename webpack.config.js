@@ -27,7 +27,8 @@ module.exports = {
     host: '0.0.0.0',
     historyApiFallback: {
       rewrites: [
-        { from: /^\/admin/, to: '/dashboard.html' }
+        { from: /^\/admin/, to: '/dashboard.html' },
+        { from: /./, to: '/404.html' },
       ],
     },
   },
@@ -102,6 +103,11 @@ module.exports = {
       template: './src/core/public/template.html',
       favicon: './src/core/public/favicon.ico',
       chunks: ['dashboard'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: '404.html',
+      template: './src/core/public/404.html',
+      favicon: './src/core/public/favicon.ico',
     }),
     new MiniCssExtractPlugin(),
   ],

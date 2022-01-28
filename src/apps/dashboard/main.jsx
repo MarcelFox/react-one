@@ -10,10 +10,6 @@ import NavBar from '@App/dashboard/components/navBar';
 
 const rootElement = document.getElementById('root');
 
-function NotFound() {
-  return <h1>404 - Page Not Found</h1>;
-}
-
 function Dashboard() {
   return (
     <frameElement>
@@ -26,7 +22,6 @@ function Dashboard() {
 render(
   <BrowserRouter basename="admin">
     <Routes>
-      <Route path="*" element={<NotFound />} />
       <Route path="/" element={<Dashboard />}>
         <Route index element={<HomeDash />} />
         <Route path="info" element={<Info />} />

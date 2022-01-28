@@ -10,10 +10,6 @@ import NavBar from '@App/landingPage/components/navBar';
 
 const rootElement = document.getElementById('root');
 
-function NotFound() {
-  return <h1>404 - Page Not Found</h1>;
-}
-
 function LandingPage() {
   return (
     <frameElement>
@@ -26,7 +22,6 @@ function LandingPage() {
 render(
   <BrowserRouter>
     <Routes>
-      <Route path="*" element={<NotFound />} />
       <Route path="/" element={<LandingPage />}>
         <Route index element={<HomeLp />} />
         <Route path="about" element={<About />} />
