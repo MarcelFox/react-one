@@ -14,7 +14,7 @@ module.exports = {
   mode: NODE_ENV,
   entry: {
     landingPage: './src/apps/landingPage/main.jsx',
-    adminApp: './src/apps/dashboard/main.jsx',
+    dashboard: './src/apps/dashboard/main.jsx',
   },
   output: {
     filename: '[name].bundle.[fullhash].js',
@@ -25,7 +25,13 @@ module.exports = {
     port: port,
     compress: true,
     host: '0.0.0.0',
-    historyApiFallback: true,
+    historyApiFallback: {
+      rewrites: [
+        // { from: /^\/$/, to: '/lp.html' },
+        { from: /^\/home/, to: '/lp.html' },
+        { from: /^\/admin/, to: '/dashboard.html' }
+      ],
+    },
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -85,11 +91,20 @@ module.exports = {
     },
   },
   plugins: [
+    new HtmlWebpackPlugin(),
     new HtmlWebpackPlugin({
-      inject: true,
+      inject: 'body',
+      filename: 'lp.html',
       template: './src/core/public/template.html',
       favicon: './src/core/public/favicon.ico',
-      chunks: 'all',
+      chunks: ['landingPage'],
+    }),
+    new HtmlWebpackPlugin({
+      inject: 'body',
+      filename: 'dashboard.html',
+      template: './src/core/public/template.html',
+      favicon: './src/core/public/favicon.ico',
+      chunks: ['dashboard'],
     }),
     new MiniCssExtractPlugin(),
   ],
