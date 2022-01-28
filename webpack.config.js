@@ -27,8 +27,6 @@ module.exports = {
     host: '0.0.0.0',
     historyApiFallback: {
       rewrites: [
-        // { from: /^\/$/, to: '/lp.html' },
-        { from: /^\/home/, to: '/lp.html' },
         { from: /^\/admin/, to: '/dashboard.html' }
       ],
     },
@@ -91,10 +89,9 @@ module.exports = {
     },
   },
   plugins: [
-    new HtmlWebpackPlugin(),
+    // new HtmlWebpackPlugin(),
     new HtmlWebpackPlugin({
       inject: 'body',
-      filename: 'lp.html',
       template: './src/core/public/template.html',
       favicon: './src/core/public/favicon.ico',
       chunks: ['landingPage'],

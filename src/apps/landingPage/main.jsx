@@ -24,7 +24,7 @@ function LandingPage() {
 }
 
 render(
-  <BrowserRouter basename="home">
+  <BrowserRouter>
     <Routes>
       <Route path="*" element={<NotFound />} />
       <Route path="/" element={<LandingPage />}>
