@@ -27,7 +27,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      '@Domain': path.resolve(__dirname, 'src/domains'),
+      '@App': path.resolve(__dirname, 'src/apps'),
       '@Core': path.resolve(__dirname, 'src/core'),
       '@Public': path.resolve(__dirname, 'src/core/public'),
       '@': path.resolve(__dirname, 'src'),

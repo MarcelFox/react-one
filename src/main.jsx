@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import LandingPage from '@Domain/landingPage/index';
-import Home from '@Domain/landingPage/pages/home';
-import About from '@Domain/landingPage/pages/about';
+import LandingPage from '@App/landingPage/index';
+import Home from '@App/landingPage/pages/home';
+import About from '@App/landingPage/pages/about';
 
 const rootElement = document.getElementById('root');
 
