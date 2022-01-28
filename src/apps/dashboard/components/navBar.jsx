@@ -21,6 +21,16 @@ export default function NavBar() {
         >
           <Link to="/info">Info</Link>
         </li>
+        <li
+          style={{
+            display: 'inline',
+            padding: 5,
+            borderLeft: '1px solid black',
+          }}
+        >
+          {/* using default 'a' to jump to another app route */}
+          <a href="../">LP</a>
+        </li>
       </ul>
     </nav>
   );
