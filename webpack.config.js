@@ -1,6 +1,6 @@
 const path = require('path');
 const dotenv = require('dotenv');
-const TerserPlugin = require("terser-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -12,9 +12,12 @@ const NODE_ENV =
 const port = process.env.PORT || 8080;
 module.exports = {
   mode: NODE_ENV,
-  entry: './src/main.jsx',
+  entry: {
+    landingPage: './src/apps/landingPage/main.jsx',
+    dashboard: './src/apps/dashboard/main.jsx',
+  },
   output: {
-    filename: 'bundle.[fullhash].js',
+    filename: '[name].bundle.[fullhash].js',
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -22,12 +25,17 @@ module.exports = {
     port: port,
     compress: true,
     host: '0.0.0.0',
-    historyApiFallback: true,
+    historyApiFallback: {
+      rewrites: [
+        { from: /^\/admin/, to: '/dashboard.html' },
+        { from: /./, to: '/404.html' },
+      ],
+    },
   },
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      '@Domain': path.resolve(__dirname, 'src/domains'),
+      '@App': path.resolve(__dirname, 'src/apps'),
       '@Core': path.resolve(__dirname, 'src/core'),
       '@Public': path.resolve(__dirname, 'src/core/public'),
       '@': path.resolve(__dirname, 'src'),
@@ -70,16 +78,35 @@ module.exports = {
       {
         test: /\.(scss|css)$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-      }
+      },
     ],
   },
   optimization: {
     minimize: true,
     minimizer: [new TerserPlugin()],
+    splitChunks: {
+      // include all types of chunks
+      chunks: 'all',
+    },
   },
   plugins: [
+    // new HtmlWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: './src/core/public/index.html',
+      inject: 'body',
+      template: './src/core/public/template.html',
+      favicon: './src/core/public/favicon.ico',
+      chunks: ['landingPage'],
+    }),
+    new HtmlWebpackPlugin({
+      inject: 'body',
+      filename: 'dashboard.html',
+      template: './src/core/public/template.html',
+      favicon: './src/core/public/favicon.ico',
+      chunks: ['dashboard'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: '404.html',
+      template: './src/core/public/404.html',
       favicon: './src/core/public/favicon.ico',
     }),
     new MiniCssExtractPlugin(),
