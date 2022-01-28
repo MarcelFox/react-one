@@ -1,6 +1,6 @@
 const path = require('path');
 const dotenv = require('dotenv');
-const TerserPlugin = require("terser-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -12,9 +12,12 @@ const NODE_ENV =
 const port = process.env.PORT || 8080;
 module.exports = {
   mode: NODE_ENV,
-  entry: './src/main.jsx',
+  entry: {
+    landingPage: './src/apps/landingPage/main.jsx',
+    adminApp: './src/apps/dashboard/main.jsx',
+  },
   output: {
-    filename: 'bundle.[fullhash].js',
+    filename: '[name].bundle.[fullhash].js',
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -70,17 +73,23 @@ module.exports = {
       {
         test: /\.(scss|css)$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-      }
+      },
     ],
   },
   optimization: {
     minimize: true,
     minimizer: [new TerserPlugin()],
+    splitChunks: {
+      // include all types of chunks
+      chunks: 'all',
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/core/public/index.html',
+      inject: true,
+      template: './src/core/public/template.html',
       favicon: './src/core/public/favicon.ico',
+      chunks: 'all',
     }),
     new MiniCssExtractPlugin(),
   ],

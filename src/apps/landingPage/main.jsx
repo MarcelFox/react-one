@@ -24,11 +24,11 @@ function LandingPage() {
 }
 
 render(
-  <BrowserRouter basename="admin">
+  <BrowserRouter basename="/">
     <Routes>
       <Route path="*" element={<NotFound />} />
       <Route path="/" element={<LandingPage />}>
-        <Route path="/" element={<HomeLp />} />
+        <Route index element={<HomeLp />} />
         <Route path="about" element={<About />} />
       </Route>
     </Routes>

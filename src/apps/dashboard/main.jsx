@@ -28,8 +28,8 @@ render(
     <Routes>
       <Route path="*" element={<NotFound />} />
       <Route path="/" element={<Dashboard />}>
-        <Route path="/" element={<HomeDash />} />
-        <Route path="about" element={<Info />} />
+        <Route index element={<HomeDash />} />
+        <Route path="info" element={<Info />} />
       </Route>
     </Routes>
   </BrowserRouter>,
