@@ -4,8 +4,8 @@
   "description": "Personal webpage",
   "main": "main.js",
   "scripts": {
-    "dev": "webpack serve --live-reload",
-    "build": "webpack",
+    "dev": "webpack serve --config webpack.client.js --live-reload",
+    "build": "webpack --config webpack.client.js",
     "docker:build": "docker-compose run react-one npm run build",
     "docker:dev": "docker-compose run -p8080:8080 react-one npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -38,7 +38,10 @@
     "react-dom": "^17.0.2",
     "react-hot-loader": "^4.13.0",
     "react-router-dom": "^6.2.1",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "terser-webpack-plugin": "^5.3.0",
+    "mini-css-extract-plugin": "^2.5.3",
+    "html-webpack-plugin": "^5.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.12",
@@ -55,10 +58,8 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "html-webpack-plugin": "^5.5.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.1",
-    "mini-css-extract-plugin": "^2.5.3",
     "prettier": "^2.5.1",
     "sass": "^1.49.0",
     "sass-loader": "^12.4.0",

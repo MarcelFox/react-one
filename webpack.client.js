@@ -6,23 +6,22 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 dotenv.config();
 
-const NODE_ENV =
-  process.env.NODE_ENV === 'production' ? 'production' : 'development';
+const NODE_ENV = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
-const port = process.env.PORT || 8080;
 module.exports = {
   mode: NODE_ENV,
+  target: 'web',
   entry: {
     landingPage: './src/apps/landingPage/main.jsx',
     dashboard: './src/apps/dashboard/main.jsx',
   },
   output: {
-    filename: '[name].bundle.[fullhash].js',
+    filename: '[name].bundle.[fullhash:8].js',
   },
   devtool: 'inline-source-map',
   devServer: {
     hot: true,
-    port: port,
+    port: process.env.PORT || 8080,
     compress: true,
     host: '0.0.0.0',
     historyApiFallback: {
@@ -41,7 +40,6 @@ module.exports = {
       '@': path.resolve(__dirname, 'src'),
     },
   },
-  target: 'web',
   module: {
     rules: [
       {
