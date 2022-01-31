@@ -40,7 +40,11 @@
         "sourceType": "module"
     },
     "settings": {
-        "import/resolver": "webpack",
+        "import/resolver": {
+            "webpack": {
+                "config": "./webpack.client.js"
+            }
+        },
         "json/sort-package-json": "standard",
         "json/ignore-files": [
             "**/package-lock.json"
