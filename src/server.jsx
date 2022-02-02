@@ -15,7 +15,7 @@ app.get('*', (req, res) => {
       {req.url.includes('admin') ? <Dashboard /> : <LandingPage />}
     </StaticRouter>
   );
-  res.send(`<!DOCTYPE html>, ${html}`);
+  res.send(`<!DOCTYPE html> ${html}`);
 });
 
 app.listen(3000, () => console.log('Server running at 3000')); // eslint-disable-line no-console
