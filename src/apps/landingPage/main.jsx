@@ -1,32 +1,35 @@
 import React from 'react';
-import { render } from 'react-dom';
-import {
-  BrowserRouter, Routes, Route, Outlet
-} from 'react-router-dom';
+import { Routes, Route, Outlet } from 'react-router-dom';
 
 import HomeLp from '@App/landingPage/pages/home';
 import About from '@App/landingPage/pages/about';
 import NavBar from '@App/landingPage/components/navBar';
 
-const rootElement = document.getElementById('root');
+// const rootElement = document.getElementById('root');
 
-function LandingPage() {
+function Main() {
   return (
-    <frameElement>
+    <>
       <NavBar />
       <Outlet />
-    </frameElement>
+    </>
   );
 }
-
-render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<LandingPage />}>
-        <Route index element={<HomeLp />} />
-        <Route path="about" element={<About />} />
-      </Route>
-    </Routes>
-  </BrowserRouter>,
-  rootElement
-);
+export default function LandingPage() {
+  return (
+    <html lang="en">
+      <head>
+        <title>Server Rendered App</title>
+      </head>
+      <body>
+        <Routes>
+          <Route path="/" element={<Main />}>
+            <Route index element={<HomeLp />} />
+            <Route path="about" element={<About />} />
+          </Route>
+        </Routes>
+        <script src="/landingPage.bundle.js" />
+      </body>
+    </html>
+  );
+}
