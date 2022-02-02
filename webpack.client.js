@@ -6,31 +6,18 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 dotenv.config();
 
-const NODE_ENV =
-  process.env.NODE_ENV === 'production' ? 'production' : 'development';
+const NODE_ENV = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
-const port = process.env.PORT || 8080;
 module.exports = {
   mode: NODE_ENV,
+  target: 'web',
   entry: {
-    landingPage: './src/apps/landingPage/main.jsx',
-    dashboard: './src/apps/dashboard/main.jsx',
+    landingPage: './src/apps/landingPage/client.entry.jsx',
+    dashboard: './src/apps/dashboard/client.entry.jsx',
   },
   output: {
-    filename: '[name].bundle.[fullhash].js',
-  },
-  devtool: 'inline-source-map',
-  devServer: {
-    hot: true,
-    port: port,
-    compress: true,
-    host: '0.0.0.0',
-    historyApiFallback: {
-      rewrites: [
-        { from: /^\/admin/, to: '/dashboard.html' },
-        { from: /./, to: '/404.html' },
-      ],
-    },
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'public'),
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -41,7 +28,6 @@ module.exports = {
       '@': path.resolve(__dirname, 'src'),
     },
   },
-  target: 'web',
   module: {
     rules: [
       {
@@ -61,7 +47,7 @@ module.exports = {
       },
       {
         test: /\.(js|jsx)$/,
-        exclude: /(node_modules|public)/,
+        exclude: /(node_modules|public|dist)/,
         use: {
           loader: 'babel-loader',
           options: {
