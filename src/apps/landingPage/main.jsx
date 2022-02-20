@@ -5,8 +5,6 @@ import HomeLp from '@App/landingPage/pages/home';
 import About from '@App/landingPage/pages/about';
 import NavBar from '@App/landingPage/components/navBar';
 
-// const rootElement = document.getElementById('root');
-
 function Main() {
   return (
     <>
