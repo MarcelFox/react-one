@@ -76,7 +76,6 @@ module.exports = {
     },
   },
   plugins: [
-    // new HtmlWebpackPlugin(),
     new HtmlWebpackPlugin({
       inject: 'body',
       template: './src/core/public/template.html',
