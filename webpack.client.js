@@ -16,7 +16,7 @@ module.exports = {
     dashboard: './src/apps/dashboard/client.entry.jsx',
   },
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name]/bundle.js',
     path: path.resolve(__dirname, 'public'),
   },
   resolve: {
@@ -78,13 +78,14 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       inject: 'body',
+      filename: 'landingPage/index.html',
       template: './src/core/public/template.html',
       favicon: './src/core/public/favicon.ico',
       chunks: ['landingPage'],
     }),
     new HtmlWebpackPlugin({
       inject: 'body',
-      filename: 'dashboard.html',
+      filename: 'dashboard/index.html',
       template: './src/core/public/template.html',
       favicon: './src/core/public/favicon.ico',
       chunks: ['dashboard'],

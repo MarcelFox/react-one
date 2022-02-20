@@ -26,7 +26,7 @@ export default function Dashboard() {
             <Route path="/admin/info" element={<Info />} />
           </Route>
         </Routes>
-        <script src="/dashboard.bundle.js" />
+        <script src="/dashboard/bundle.js" />
       </body>
     </html>
   );

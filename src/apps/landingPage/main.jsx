@@ -26,7 +26,7 @@ export default function LandingPage() {
             <Route path="about" element={<About />} />
           </Route>
         </Routes>
-        <script src="/landingPage.bundle.js" />
+        <script src="/landingPage/bundle.js" />
       </body>
     </html>
   );
