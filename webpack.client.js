@@ -16,7 +16,7 @@ module.exports = {
     dashboard: './src/apps/dashboard/client.entry.jsx',
   },
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name]/bundle.js',
     path: path.resolve(__dirname, 'public'),
   },
   resolve: {
@@ -76,24 +76,24 @@ module.exports = {
     },
   },
   plugins: [
-    // new HtmlWebpackPlugin(),
     new HtmlWebpackPlugin({
-      inject: 'body',
-      template: './src/core/public/template.html',
-      favicon: './src/core/public/favicon.ico',
+      inject: true,
+      filename: './landingPage/index.html',
+      template: './src/core/static/template.html',
+      favicon: './src/core/static/favicon.ico',
       chunks: ['landingPage'],
     }),
     new HtmlWebpackPlugin({
-      inject: 'body',
-      filename: 'dashboard.html',
-      template: './src/core/public/template.html',
-      favicon: './src/core/public/favicon.ico',
+      inject: true,
+      filename: './dashboard/index.html',
+      template: './src/core/static/template.html',
+      favicon: './src/core/static/favicon.ico',
       chunks: ['dashboard'],
     }),
     new HtmlWebpackPlugin({
       filename: '404.html',
-      template: './src/core/public/404.html',
-      favicon: './src/core/public/favicon.ico',
+      template: './src/core/static/404.html',
+      favicon: './src/core/static/favicon.ico',
     }),
     new MiniCssExtractPlugin(),
   ],

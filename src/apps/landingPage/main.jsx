@@ -5,8 +5,6 @@ import HomeLp from '@App/landingPage/pages/home';
 import About from '@App/landingPage/pages/about';
 import NavBar from '@App/landingPage/components/navBar';
 
-// const rootElement = document.getElementById('root');
-
 function Main() {
   return (
     <>
@@ -28,7 +26,7 @@ export default function LandingPage() {
             <Route path="about" element={<About />} />
           </Route>
         </Routes>
-        <script src="/landingPage.bundle.js" />
+        <script src="/landingPage/bundle.js" />
       </body>
     </html>
   );

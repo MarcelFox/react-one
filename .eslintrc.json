@@ -58,7 +58,7 @@
         "react"
     ],
     "ignorePatterns": [
-        "src/core/public/**",
+        "src/core/static/**",
         "node_modules/**",
         "webpack.config.js"
     ]
