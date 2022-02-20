@@ -10,7 +10,7 @@ export default function NavBar() {
     >
       <ul>
         <li style={{ display: 'inline', padding: 5 }}>
-          <Link to="/">Home</Link>
+          <Link to="/">Home LP</Link>
         </li>
         <li
           style={{

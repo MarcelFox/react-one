@@ -10,7 +10,7 @@ export default function NavBar() {
     >
       <ul>
         <li style={{ display: 'inline', padding: 5 }}>
-          <Link to="/admin">Home Dashboard</Link>
+          <Link to="/">Home Dashboard</Link>
         </li>
         <li
           style={{
@@ -19,7 +19,7 @@ export default function NavBar() {
             borderLeft: '1px solid black',
           }}
         >
-          <Link to="/admin/info">Info</Link>
+          <Link to="/info">Info</Link>
         </li>
         <li
           style={{
@@ -28,7 +28,8 @@ export default function NavBar() {
             borderLeft: '1px solid black',
           }}
         >
-          <Link to="/">LP</Link>
+          {/* using default 'a' to jump to another app route */}
+          <a href="/">LP</a>
         </li>
       </ul>
     </nav>

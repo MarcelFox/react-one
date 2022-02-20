@@ -8,6 +8,8 @@ import Dashboard from './apps/dashboard/main';
 const app = express();
 
 app.use(express.static('./public'));
+app.use('/', express.static('./public/landingPage'));
+app.use('/admin', express.static('./public/dashboard'));
 
 app.get('*', (req, res) => {
   const html = ReactDOMServer.renderToString(
