@@ -5,7 +5,7 @@ Thanks Pedro Soares for every discussion that we had back at Tekoa, working on G
 
 ## How to work with?
 
-There are a few scripts available on project's _package.json_
+Main execution script:
 
 - _**npm run start**_ 
 build & start the server on http://localhost:3000
