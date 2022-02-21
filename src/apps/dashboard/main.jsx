@@ -21,9 +21,9 @@ export default function Dashboard() {
       </head>
       <body>
         <Routes>
-          <Route path="/" element={<Main />}>
+          <Route path="/admin" element={<Main />}>
             <Route index element={<HomeDash />} />
-            <Route path="info" element={<Info />} />
+            <Route path="/admin/info" element={<Info />} />
           </Route>
         </Routes>
         <script src="/bundle.js" />

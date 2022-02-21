@@ -7,19 +7,14 @@ import Dashboard from './apps/dashboard/main';
 
 const app = express();
 
-app.use(express.static('./public'));
-app.use('/', express.static('./public/landingPage'));
-app.use('/admin', express.static('./public/dashboard'));
+app.use(express.static('./dist'));
+app.use('/admin', express.static('./dist/dashboard'));
+app.use('/', express.static('./dist/landingPage'));
 
 app.get('*', (req, res) => {
   const html = ReactDOMServer.renderToString(
     <StaticRouter location={req.url}>
-      {() => {
-        if (req.url.includes('admin')) {
-          return <Dashboard />;
-        }
-        return <LandingPage />;
-      }}
+      {req.url.includes('admin') ? <Dashboard /> : <LandingPage />}
     </StaticRouter>
   );
   res.send(`<!DOCTYPE html> ${html}`);

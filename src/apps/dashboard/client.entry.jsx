@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Dashboard from './main';
 
 ReactDOM.hydrate(
-  <BrowserRouter basename="admin">
+  <BrowserRouter>
     <Dashboard />
   </BrowserRouter>,
   document.documentElement
