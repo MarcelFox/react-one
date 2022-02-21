@@ -28,7 +28,8 @@ export default function NavBar() {
             borderLeft: '1px solid black',
           }}
         >
-          <Link to="/">LP</Link>
+          {/* using default 'a' to jump to another app route */}
+          <a href="/">LP</a>
         </li>
       </ul>
     </nav>
