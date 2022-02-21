@@ -7,14 +7,5 @@ Thanks Pedro Soares for every discussion that we had back at Tekoa, working on G
 
 There are a few scripts available on project's _package.json_
 
-- _**npm run dev**_ 
-start the webpack dev server on http://localhost:3000
-
-- _**npm run build**_ 
-builds the project and stores it at the _dist_ directory
-
-- _**npm run docker:dev**_ 
-start the webpack dev server on http://localhost:3000 inside a docker container
-
-- _**npm run build**_ 
-builds the project inside a docker container and stores it at the _dist_ directory
+- _**npm run start**_ 
+build & start the server on http://localhost:3000
