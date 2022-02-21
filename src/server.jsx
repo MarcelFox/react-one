@@ -11,12 +11,26 @@ app.use(express.static('./dist'));
 app.use('/admin', express.static('./dist/dashboard'));
 app.use('/', express.static('./dist/landingPage'));
 
-app.get('*', (req, res) => {
+app.get(['/', '/about'], (req, res) => {
   const html = ReactDOMServer.renderToString(
     <StaticRouter location={req.url}>
-      {req.url.includes('admin') ? <Dashboard /> : <LandingPage />}
+      <LandingPage />
     </StaticRouter>
   );
+  res.send(`<!DOCTYPE html> ${html}`);
+});
+
+app.get(['/admin', '/admin/info'], (req, res) => {
+  const html = ReactDOMServer.renderToString(
+    <StaticRouter location={req.url}>
+      <Dashboard />
+    </StaticRouter>
+  );
+  res.send(`<!DOCTYPE html> ${html}`);
+});
+
+app.get(['*', '/admin*'], (req, res) => {
+  const html = ReactDOMServer.renderToString(<h1>404 - Not found</h1>);
   res.send(`<!DOCTYPE html> ${html}`);
 });
 
