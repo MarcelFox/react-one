@@ -19,6 +19,7 @@ app.get(['/', '/about'], (req, res) => {
   );
   res.send(`<!DOCTYPE html> ${html}`);
 });
+
 app.get(['/admin', '/admin/info'], (req, res) => {
   const html = ReactDOMServer.renderToString(
     <StaticRouter location={req.url}>
