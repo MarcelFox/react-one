@@ -2,7 +2,6 @@
 <!-- What is the context of your pull request? -->
 Example: _"The feature X was buggy, we should have feature X fixed..."_
 
-<br />
 
 ## Changes
 <!-- List your changes in a few words -->
