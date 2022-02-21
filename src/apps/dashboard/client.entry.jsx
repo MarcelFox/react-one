@@ -7,5 +7,5 @@ ReactDOM.hydrate(
   <BrowserRouter>
     <Dashboard />
   </BrowserRouter>,
-  document.documentElement
+  document.getElementById('root')
 );

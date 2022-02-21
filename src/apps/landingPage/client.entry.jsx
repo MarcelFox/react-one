@@ -7,5 +7,5 @@ ReactDOM.hydrate(
   <BrowserRouter>
     <LandingPage />
   </BrowserRouter>,
-  document.documentElement
+  document.getElementById('root')
 );
