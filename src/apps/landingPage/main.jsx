@@ -15,19 +15,14 @@ function Main() {
 }
 export default function LandingPage() {
   return (
-    <html lang="en">
-      <head>
-        <title>Server Rendered App</title>
-      </head>
-      <body>
-        <Routes>
-          <Route path="/" element={<Main />}>
-            <Route index element={<HomeLp />} />
-            <Route path="about" element={<About />} />
-          </Route>
-        </Routes>
-        <script src="/landingPage/bundle.js" />
-      </body>
-    </html>
+    <>
+      <Routes>
+        <Route path="/" element={<Main />}>
+          <Route index element={<HomeLp />} />
+          <Route path="about" element={<About />} />
+        </Route>
+      </Routes>
+      <script src="/landingPage/bundle.js" />
+    </>
   );
 }

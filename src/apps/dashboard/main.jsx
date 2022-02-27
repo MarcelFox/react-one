@@ -15,19 +15,14 @@ function Main() {
 }
 export default function Dashboard() {
   return (
-    <html lang="en">
-      <head>
-        <title>Dashboard</title>
-      </head>
-      <body>
-        <Routes>
-          <Route path="/admin" element={<Main />}>
-            <Route index element={<HomeDash />} />
-            <Route path="/admin/info" element={<Info />} />
-          </Route>
-        </Routes>
-        <script src="/bundle.js" />
-      </body>
-    </html>
+    <>
+      <Routes>
+        <Route path="/admin" element={<Main />}>
+          <Route index element={<HomeDash />} />
+          <Route path="/admin/info" element={<Info />} />
+        </Route>
+      </Routes>
+      <script src="/bundle.js" />
+    </>
   );
 }
