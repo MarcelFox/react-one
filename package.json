@@ -37,7 +37,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "dotenv": "^14.3.2",
-    "ejs": "^3.1.6",
+    "ejs": "^3.0.2",
     "express": "^4.17.2",
     "follow-redirects": "^1.14.8",
     "html-loader": "^3.1.0",
