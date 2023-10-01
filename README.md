@@ -1,3 +1,4 @@
+![Alt text](template.png)
 # React-One
 This project is based on webpack to provide a base structure to start developing with React. It's meant to follow a _Domain Driven Design_ but, can be improved and ideas will be very welcome. 
 
